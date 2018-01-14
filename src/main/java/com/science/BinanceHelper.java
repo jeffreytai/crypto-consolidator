@@ -1,8 +1,9 @@
 package com.science;
 
+import com.science.exception.InvalidCoinException;
+import com.science.slack.SlackWebhook;
 import com.webcerebrium.binance.api.BinanceApi;
 import com.webcerebrium.binance.api.BinanceApiException;
-import com.webcerebrium.binance.datatype.BinanceOrder;
 import com.webcerebrium.binance.datatype.BinanceOrderPlacement;
 import com.webcerebrium.binance.datatype.BinanceOrderSide;
 import com.webcerebrium.binance.datatype.BinanceOrderType;
@@ -12,6 +13,10 @@ import com.webcerebrium.binance.datatype.BinanceWalletAsset;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,17 +24,17 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class Consolidator {
+public class BinanceHelper {
 
     private final String BASE_CURRENCY = "BTC";
 
     private Set<String> coinExclusions;
     private BinanceApi binance;
 
-    public Consolidator() {
+    public BinanceHelper() {
         try {
             Properties props = new Properties();
-            InputStream stream = Consolidator.class.getClassLoader().getResourceAsStream("application.properties");
+            InputStream stream = BinanceHelper.class.getClassLoader().getResourceAsStream("exchange.properties");
             props.load(stream);
             stream.close();
 
@@ -42,7 +47,7 @@ public class Consolidator {
         this.coinExclusions.add(this.BASE_CURRENCY);
     }
 
-    public void getBalances() {
+    public void consolidateCoins(String[] exclusions) throws InvalidCoinException {
          Map<String, BinanceWalletAsset> balanceMap = new HashMap<>();
          Map<String, BigDecimal> priceMap = new HashMap<>();
 
@@ -53,6 +58,15 @@ public class Consolidator {
          } catch (BinanceApiException ex) {
              ex.printStackTrace();
          }
+
+        for (String exclusion : exclusions) {
+             boolean anyMatch = priceMap.keySet().stream().anyMatch(e -> e.indexOf(exclusion) == 0);
+             if (!anyMatch)  {
+                 throw new InvalidCoinException(exclusion + " is not a valid coin");
+             }
+
+             coinExclusions.add(exclusion);
+        }
 
          Map<String, BinanceWalletAsset> orderedBalances = new TreeMap<>();
          orderedBalances.putAll(balanceMap/*.entrySet().stream().limit(10).collect(Collectors.toMap(k -> k.getKey(), v -> v.getValue()))*/);
@@ -102,5 +116,18 @@ public class Consolidator {
          }
 
          System.out.println("Total bitcoin amount: " + totalBitcoinAmount);
+         sendSlackAlertMessage(totalBitcoinAmount);
+    }
+
+    private void sendSlackAlertMessage(BigDecimal totalBitcoinAmount) {
+        SlackWebhook slack = new SlackWebhook("binance-consolidation");
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+
+        // Formulate alert text
+        String message = String.format("Consolidated %s worth of BTC on %s",
+                totalBitcoinAmount.setScale(4, RoundingMode.FLOOR).toString(), dateFormat.format(new Date()).toString());
+
+        // Send message to Slack channel
+        slack.sendMessage(message);
     }
 }
