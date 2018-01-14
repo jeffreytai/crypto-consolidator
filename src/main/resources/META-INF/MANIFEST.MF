@@ -1,0 +1,55 @@
+Manifest-Version: 1.0
+Class-Path: jul-to-slf4j-1.7.25.jar wagon-ssh-1.0-beta-6.jar doxia-sit
+ e-renderer-1.4.jar slf4j-jdk14-1.7.25.jar xercesMinimal-1.9.6.2.jar m
+ aven-profile-2.2.1.jar commons-net-3.3.jar wagon-http-shared-1.0-beta
+ -6.jar spring-boot-1.5.9.RELEASE.jar websocket-client-9.4.7.v20170914
+ .jar dom4j-1.6.1.jar maven-reporting-impl-2.3.jar nekohtml-1.9.6.2.ja
+ r wagon-file-1.0-beta-6.jar spring-boot-starter-tomcat-1.5.9.RELEASE.
+ jar jetty-http-9.4.7.v20170914.jar sslext-1.2-0.jar maven-repository-
+ metadata-2.2.1.jar log4j-over-slf4j-1.7.25.jar maven-plugin-parameter
+ -documenter-2.2.1.jar spring-boot-starter-web-1.5.9.RELEASE.jar tomca
+ t-embed-el-8.5.23.jar plexus-cipher-1.4.jar maven-core-2.2.1.jar mave
+ n-project-2.2.1.jar plexus-i18n-1.0-beta-7.jar maven-error-diagnostic
+ s-2.2.1.jar commons-beanutils-1.9.3.jar guava-19.0.jar jackrabbit-jcr
+ -commons-1.5.0.jar plexus-interpolation-1.21.jar spring-webmvc-4.3.13
+ .RELEASE.jar hibernate-validator-5.3.6.Final.jar maven-artifact-manag
+ er-2.2.1.jar spring-boot-starter-logging-1.5.9.RELEASE.jar spring-exp
+ ression-4.3.13.RELEASE.jar plexus-sec-dispatcher-1.3.jar spring-aop-4
+ .3.13.RELEASE.jar junit-4.12.jar websocket-api-9.4.7.v20170914.jar co
+ mmons-lang-2.1.jar velocity-tools-2.0.jar spring-context-4.3.13.RELEA
+ SE.jar jsch-0.1.38.jar maven-plugin-registry-2.2.1.jar classmate-1.3.
+ 4.jar spring-boot-autoconfigure-1.5.9.RELEASE.jar commons-collections
+ -3.2.2.jar velocity-1.5.jar commons-codec-1.10.jar wagon-http-lightwe
+ ight-1.0-beta-6.jar jcl-over-slf4j-1.7.25.jar tomcat-annotations-api-
+ 8.5.23.jar commons-logging-1.0.4.jar lombok-1.16.18.jar plexus-veloci
+ ty-1.1.8.jar wagon-provider-api-1.0-beta-6.jar slf4j-nop-1.7.25.jar j
+ etty-xml-9.4.7.v20170914.jar commons-io-2.4.jar doxia-module-xhtml-1.
+ 4.jar wagon-ssh-external-1.0-beta-6.jar checkstyle-6.11.2.jar xercesI
+ mpl-2.9.1.jar commons-digester-2.1.jar plexus-resources-1.0.1.jar mav
+ en-reporting-api-3.0.jar binance-api-1.0.8.jar classworlds-1.1.jar gs
+ on-2.8.2.jar doxia-logging-api-1.4.jar xml-apis-1.4.01.jar logback-co
+ re-1.1.11.jar commons-validator-1.3.1.jar maven-monitor-2.2.1.jar slf
+ 4j-api-1.7.25.jar jackson-annotations-2.8.0.jar snakeyaml-1.17.jar co
+ mmons-lang3-3.4.jar antlr-2.7.7.jar spring-core-4.3.13.RELEASE.jar ja
+ ckrabbit-webdav-1.5.0.jar slack-api-v1.5.1.RELEASE.jar commons-httpcl
+ ient-3.0.jar wagon-http-1.0-beta-6.jar backport-util-concurrent-3.1.j
+ ar httpcore-4.4.8.jar httpclient-4.5.3.jar jboss-logging-3.3.1.Final.
+ jar maven-checkstyle-plugin-2.17.jar jackson-databind-2.8.10.jar jsr3
+ 05-2.0.1.jar logback-classic-1.1.11.jar maven-settings-2.2.1.jar doxi
+ a-decoration-model-1.4.jar doxia-core-1.2.jar spring-boot-starter-1.5
+ .9.RELEASE.jar plexus-utils-3.0.20.jar struts-taglib-1.3.8.jar wagon-
+ webdav-jackrabbit-1.0-beta-6.jar doxia-module-fml-1.4.jar spring-web-
+ 4.3.13.RELEASE.jar tomcat-embed-core-8.5.23.jar wagon-ssh-common-1.0-
+ beta-6.jar struts-core-1.3.8.jar jackson-core-2.8.10.jar hamcrest-cor
+ e-1.3.jar struts-tiles-1.3.8.jar maven-plugin-descriptor-2.2.1.jar we
+ bsocket-common-9.4.7.v20170914.jar antlr4-runtime-4.5.1-1.jar validat
+ ion-api-1.1.0.Final.jar jetty-util-9.4.7.v20170914.jar maven-shared-u
+ tils-0.6.jar oro-2.0.8.jar spring-beans-4.3.13.RELEASE.jar jetty-io-9
+ .4.7.v20170914.jar plexus-interactivity-api-1.0-alpha-4.jar plexus-co
+ ntainer-default-1.0-alpha-9-stable-1.jar maven-model-2.2.1.jar maven-
+ artifact-2.2.1.jar tomcat-embed-websocket-8.5.23.jar doxia-sink-api-1
+ .4.jar doxia-integration-tools-1.6.jar plexus-component-annotations-1
+ .5.5.jar maven-plugin-api-2.2.1.jar commons-cli-1.2.jar jetty-client-
+ 9.4.7.v20170914.jar commons-chain-1.1.jar json-20140107.jar
+Main-Class: com.science.Application
+
