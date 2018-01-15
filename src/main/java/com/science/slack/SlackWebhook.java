@@ -3,7 +3,6 @@ package com.science.slack;
 import allbegray.slack.SlackClientFactory;
 import allbegray.slack.type.Payload;
 import allbegray.slack.webhook.SlackWebhookClient;
-import com.science.Application;
 
 import java.io.InputStream;
 import java.util.Properties;
