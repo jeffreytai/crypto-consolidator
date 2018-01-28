@@ -13,5 +13,8 @@ out/
 ## Java class files
 *.class
 
-* Properties
+## Properties
 **/resources/*.properties
+
+## Obsfucated files
+**-obfuscated.jar

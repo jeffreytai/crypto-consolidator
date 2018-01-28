@@ -43,7 +43,7 @@ public class BinanceExchangeProduct {
         Set<String> missing = new HashSet<>();
         for (String f: fields) { if (!obj.has(f) || obj.get(f).isJsonNull()) missing.add(f); }
         if (missing.size() > 0) {
-            log.warn("Missing fields {} in {}", missing.toString(), obj.toString());
+//            log.warn("Missing fields {} in {}", missing.toString(), obj.toString());
             throw new BinanceApiException("Missing fields " + missing.toString());
         }
     }
@@ -53,7 +53,7 @@ public class BinanceExchangeProduct {
             try {
                 return obj.get(field).getAsBigDecimal();
             } catch (java.lang.NumberFormatException nfe) {
-                log.info("Number format exception in field={} value={} trade={}", field, obj.get(field), obj.toString());
+//                log.info("Number format exception in field={} value={} trade={}", field, obj.get(field), obj.toString());
             }
         }
         return null;
