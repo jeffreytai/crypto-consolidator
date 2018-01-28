@@ -15,6 +15,7 @@
     </parent>
 
     <properties>
+        <mainClass>com.science.Application</mainClass>
         <java.version>8</java.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -31,14 +32,12 @@
     </repositories>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
             <version>2.17</version>
         </dependency>
 
-        <!-- Slack: https://github.com/allbegray/slack-api/tree/master/src/test/java/allbegray/slack -->
         <dependency>
             <groupId>com.github.allbegray</groupId>
             <artifactId>slack-api</artifactId>
@@ -51,9 +50,6 @@
             <version>${spring-boot.version}</version>
         </dependency>
 
-
-
-        <!-- Necessary for webcerebrium binance API -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -106,7 +102,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.4</version>
+            <version>1.16.18</version>
             <scope>provided</scope>
         </dependency>
 
@@ -133,7 +129,7 @@
                     <archive>
                         <manifest>
                             <mainClass>
-                                com.science.Application
+                                ${mainClass}
                             </mainClass>
                         </manifest>
                     </archive>
@@ -158,6 +154,27 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>proguard</goal></goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <options>
+                        <option>-allowaccessmodification</option>
+                        <option>-keep public class ${mainClass} { public static void main(java.lang.String[]); }</option>
+                        <option>-keepclassmembers enum * { public static **[] values(); public static ** valueOf(java.lang.String); }</option>
+                    </options>
+                    <libs>
+                        <lib>${java.home}/lib/rt.jar</lib>
+                        <lib>${java.home}/lib/jce.jar</lib>
+                    </libs>
                 </configuration>
             </plugin>
         </plugins>

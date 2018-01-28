@@ -72,7 +72,7 @@ public class BinanceEventKline {
         symbol = BinanceSymbol.valueOf(event.get("s").getAsString());
 
         JsonObject k = event.get("k").getAsJsonObject();
-        log.info(k.get("i").getAsString());
+//        log.info(k.get("i").getAsString());
         interval = BinanceInterval.lookup(k.get("i").getAsString());
 
         startTime = k.get("t").getAsLong();

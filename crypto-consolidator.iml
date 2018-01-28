@@ -144,7 +144,7 @@
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:19.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-client:9.4.7.v20170914" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.4.7.v20170914" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.4.7.v20170914" level="project" />
